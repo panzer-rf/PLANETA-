@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: white;
+    cursor: grab;
+    user-select: none;
+}
+
+body.grabbing {
+    cursor: grabbing;
+}
+
+#gameCanvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Panel de información */
+.info-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(10, 15, 35, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(100, 150, 255, 0.4);
+    backdrop-filter: blur(10px);
+    max-width: 300px;
+    z-index: 2;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.info-panel h1 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #4fc3f7;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+    text-align: center;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.label {
+    color: #89c2ff;
+    font-weight: 500;
+}
+
+/* Controles */
+.controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 15, 35, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(100, 150, 255, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 800px;
+}
+
+.controls h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #ffcc00;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+}
+
+.control-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.control-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(0, 20, 40, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(100, 150, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.control-item:hover {
+    background: rgba(0, 30, 60, 0.8);
+    border-color: rgba(100, 150, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.key {
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.desc {
+    color: #b3e0ff;
+    font-size: 0.9em;
+}
+
+/* Loading screen */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(79, 195, 247, 0.2);
+    border-top: 4px solid #4fc3f7;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    color: #4fc3f7;
+    font-size: 1.2em;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .info-panel {
+        padding: 15px;
+        max-width: 250px;
+    }
+
+    .controls {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .control-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .control-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-panel h1 {
+        font-size: 1.2em;
+    }
+
+    .controls h2 {
+        font-size: 1em;
+    }
+
+    .control-grid {
+        grid-template-columns: 1fr;
+    }
+}
