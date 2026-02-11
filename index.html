@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planeta Tierra 3D - Exploración Espacial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <div class="info-panel">
+        <h1>🌍 PLANETA TIERRA 3D</h1>
+        <div class="info-item">
+            <span class="label">Zoom:</span>
+            <span id="zoomLevel">1.0x</span>
+        </div>
+        <div class="info-item">
+            <span class="label">Rotación X:</span>
+            <span id="rotX">0°</span>
+        </div>
+        <div class="info-item">
+            <span class="label">Rotación Y:</span>
+            <span id="rotY">0°</span>
+        </div>
+        <div class="info-item">
+            <span class="label">Modo:</span>
+            <span id="currentMode">Navegación</span>
+        </div>
+    </div>
+
+    <div class="controls">
+        <h2>🎮 CONTROLES</h2>
+        <div class="control-grid">
+            <div class="control-item">
+                <span class="key">Mouse Drag</span>
+                <span class="desc">Rotar Planeta</span>
+            </div>
+            <div class="control-item">
+                <span class="key">Rueda</span>
+                <span class="desc">Zoom In/Out</span>
+            </div>
+            <div class="control-item">
+                <span class="key">WASD</span>
+                <span class="desc">Mover Cámara</span>
+            </div>
+            <div class="control-item">
+                <span class="key">Q/E</span>
+                <span class="desc">Ascender/Descender</span>
+            </div>
+            <div class="control-item">
+                <span class="key">R</span>
+                <span class="desc">Reset Vista</span>
+            </div>
+            <div class="control-item">
+                <span class="key">Space</span>
+                <span class="desc">Auto-Rotación</span>
+            </div>
+            <div class="control-item">
+                <span class="key">M</span>
+                <span class="desc">Modo Vía Láctea</span>
+            </div>
+            <div class="control-item">
+                <span class="key">N</span>
+                <span class="desc">Noche/Día</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading">
+        <div class="loading-spinner"></div>
+        <p>Cargando universo...</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
